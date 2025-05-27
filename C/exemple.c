@@ -1,10 +1,3 @@
-/*
- * estruturas.c
- * Exemplo Completo: Listas, Pilhas e Filas em C
- * Inclui dicas e explicações passo a passo
- * Autor: ChatGPT
- */
-
  #include <stdio.h>
  #include <stdlib.h>
  

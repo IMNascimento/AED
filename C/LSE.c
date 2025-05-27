@@ -1,6 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
+typedef struct List {
+    int legth;
+    struct Node *head, tail;
+} List; 
+
 // Definição do nó
 typedef struct Node {
     int valor;
