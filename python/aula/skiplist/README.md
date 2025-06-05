@@ -103,6 +103,52 @@ Acesse no navegador pelo link exibido (ex: http://localhost:8501).
 streamlit run script_streamlit.py --server.port 5050
 ```
 
+### D. Usando o CLI via linha de comando
+
+O arquivo `skiplist_cli.py` permite operar a SkipList rapidamente usando comandos diretos no terminal.
+
+#### Exemplos de uso:
+
+- **Inserir valores**
+    ```bash
+    python skiplist_cli.py insert 10 20 35
+    ```
+    *Insere os valores 10, 20 e 35 na SkipList.*
+
+- **Deletar valores**
+    ```bash
+    python skiplist_cli.py delete 20
+    ```
+    *Remove o valor 20 da SkipList (se existir).*
+
+- **Buscar valores**
+    ```bash
+    python skiplist_cli.py search 35 999
+    ```
+    *Busca pelos valores 35 e 999, exibindo se estão presentes ou não.*
+
+- **Mostrar a SkipList**
+    ```bash
+    python skiplist_cli.py show
+    ```
+    *Mostra a estrutura da SkipList no formato ASCII.*
+
+#### Parâmetros opcionais
+
+Você pode ajustar a altura máxima e a probabilidade dos níveis:
+
+```bash
+python skiplist_cli.py --max-level 8 --p 0.3 insert 1 2 3 4
+```
+
+---
+
+**Observações:**
+- Por padrão, os dados não são persistidos entre execuções neste CLI (é uma SkipList temporária).  
+  Para persistência real, use os scripts `script_txt.py` ou `script_streamlit.py`.
+- Sempre será exibido o estado atual da SkipList ao final de cada comando.
+
+
 ---
 
 ## 📑 Observações
