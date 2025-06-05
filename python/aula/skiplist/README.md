@@ -129,6 +129,6 @@ streamlit run script_streamlit.py --server.port 5050
 
 ## ✨ Autores
 
-> Igor Nascimento - Desenvolvedor Principal - [GitHub](https://github.com/IMNascimento)
+> Igor Nascimento - Desenvolvedor Principal - [GitHub](https://github.com/IMNascimento) - [LinkdIn](https://www.linkedin.com/in/igor-m-nascimento/) - [Um pouco mais](https://imnascimento.github.io/Portifolio/)
 
 ---
