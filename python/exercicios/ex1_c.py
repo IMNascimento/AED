@@ -1,29 +1,36 @@
+# Nó para a pilha
 class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+    def __init__(self, value):
+        self.value = value       # Valor no topo
+        self.next = None         # Próximo abaixo na pilha
 
-
+# Pilha com inserção e remoção no topo
 class Pilha:
     def __init__(self):
-        self.topo = None
+        self.top = None          # Topo da pilha
 
-    def contido(self, k):
-        atual = self.topo
-        while atual:
-            if atual.val == k:
+    def contido(self, K):
+        # Verifica se o valor K está na pilha
+        current = self.top
+        while current:
+            if current.value == K:
                 return True
-            atual = atual.next
+            current = current.next
         return False  # O(n)
 
-    def inserir(self, k):
-        novo = Node(k)
-        novo.next = self.topo
-        self.topo = novo  # O(1)
+    def inserir(self, K):
+        # Empilha o valor K no topo
+        new_node = Node(K)
+        new_node.next = self.top
+        self.top = new_node
+        # O(1)
 
     def remover(self):
-        if not self.topo:
+        # Desempilha o valor do topo
+        if not self.top:
+            print("Pilha vazia.")
             return None
-        val = self.topo.val
-        self.topo = self.topo.next
-        return val  # O(1)
+        value = self.top.value
+        self.top = self.top.next
+        return value
+        # O(1)

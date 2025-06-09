@@ -1,53 +1,62 @@
+# Nó da lista circular
 class Node:
-    def __init__(self, val):
-        self.val = val
-        self.next = None
+    def __init__(self, value):
+        self.value = value       # Valor do nó
+        self.prev = None         # Nó anterior
+        self.next = None         # Próximo nó
 
-
-
-class ListaCircular:
+# Lista Duplamente Encadeada Circular
+class ListaDuplamenteCircular:
     def __init__(self):
-        self.head = None
+        self.head = None         # Início da lista
 
-    def contido(self, k):
+    def contido(self, K):
+        # Verifica se K está na lista circular
         if not self.head:
             return False
-        atual = self.head
+        current = self.head
         while True:
-            if atual.val == k:
+            if current.value == K:
                 return True
-            atual = atual.next
-            if atual == self.head:
+            current = current.next
+            if current == self.head:
                 break
         return False  # O(n)
 
-    def inserir(self, k):
-        novo = NodeD(k)
+    def inserir(self, K):
+        # Insere K no final da lista
+        new_node = Node(K)
         if not self.head:
-            novo.next = novo.prev = novo
-            self.head = novo
+            # Lista vazia: aponta para si mesmo nos dois sentidos
+            new_node.next = new_node.prev = new_node
+            self.head = new_node
         else:
+            # Insere entre tail e head
             tail = self.head.prev
-            tail.next = novo
-            novo.prev = tail
-            novo.next = self.head
-            self.head.prev = novo  # O(1)
+            new_node.prev = tail
+            new_node.next = self.head
+            tail.next = new_node
+            self.head.prev = new_node
+        # O(1)
 
-    def remover(self, k):
+    def remover(self, K):
+        # Remove o primeiro nó com valor K
         if not self.head:
-            return False
-        atual = self.head
+            return
+        current = self.head
         while True:
-            if atual.val == k:
-                if atual.next == atual:  # único elemento
+            if current.value == K:
+                if current.next == current:
+                    # Só 1 elemento
                     self.head = None
                 else:
-                    atual.prev.next = atual.next
-                    atual.next.prev = atual.prev
-                    if atual == self.head:
-                        self.head = atual.next
-                return True
-            atual = atual.next
-            if atual == self.head:
+                    # Remove atualizando os vizinhos
+                    current.prev.next = current.next
+                    current.next.prev = current.prev
+                    if current == self.head:
+                        self.head = current.next
+                return
+            current = current.next
+            if current == self.head:
                 break
-        return False  # O(n)
+        # O(n)
